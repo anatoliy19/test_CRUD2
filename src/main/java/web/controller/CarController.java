@@ -15,8 +15,12 @@ import java.util.List;
 @RequestMapping("/cars")
 public class CarController {
 
-	@Autowired
+
 	private CarService carService;
+
+	public CarController(CarService carService) {
+		this.carService = carService;
+	}
 
 	@GetMapping(value = "/{count}")
 	public String getCars(@PathVariable("count") int count, Model model) {
